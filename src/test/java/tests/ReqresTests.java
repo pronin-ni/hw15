@@ -92,4 +92,28 @@ public class ReqresTests {
                 .body("data.first_name", is("Janet"));
 
     }
+
+    @DisplayName("Удаление пользователя по id")
+    @Test
+    void deleteUserByIdTest() {
+        given()
+                .spec(spec)
+                .when()
+                .delete("/users/2")
+                .then()
+                .statusCode(204);
+    }
+
+    @DisplayName("Обновление пользователя по id")
+    @Test
+    void updateUserByIdTest() {
+        given()
+                .spec(spec)
+                .body("{\"name\": \"nik\",\"job\": \"programmer\"}")
+                .when()
+                .put("/users/2")
+                .then()
+                .body("updatedAt", not(blankOrNullString()));
+
+    }
 }
