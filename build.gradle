@@ -1,20 +1,8 @@
 plugins {
     id 'java-library'
-    id 'io.qameta.allure' version '2.11.2'
 }
 
-allure {
-    report {
-        version.set("2.19.0")
-    }
-    adapter {
-        frameworks {
-            junit5 {
-                adapterVersion.set("2.19.0")
-            }
-        }
-    }
-}
+
 
 repositories {
     mavenCentral()
@@ -22,10 +10,9 @@ repositories {
 
 dependencies {
     testImplementation (
-            "com.codeborne:selenide:7.7.3",
             "org.junit.jupiter:junit-jupiter:5.9.3",
             "org.slf4j:slf4j-simple:2.0.7",
-            'io.qameta.allure:allure-selenide:2.19.0'
+            "io.rest-assured:rest-assured:5.5.1"
     )
 }
 
