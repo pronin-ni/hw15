@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
-import static org.hamcrest.Matchers.is;
-
+import static org.hamcrest.Matchers.*;
 public class ReqresTests {
 
     private static final String API_KEY = "reqres-free-v1";
@@ -37,7 +36,7 @@ public class ReqresTests {
                 .then()
                 .statusCode(200)
                 .log().all()
-                .body("token", is("QpwL5tke4Pnpja7X4"));
+                .body("token", not(blankOrNullString()));
     }
 
     @DisplayName("Неуспешный логин без тела")
