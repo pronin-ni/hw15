@@ -116,4 +116,19 @@ public class ReqresTests {
                 .body("updatedAt", not(blankOrNullString()));
 
     }
+
+    @DisplayName("Обновление пользователя по id через PATCH")
+    @Test
+    void updateUserByIdPatchTest() {
+        given()
+                .spec(spec)
+                .body("{\"name\": \"nik\",\"job\": \"programmer\"}")
+                .when()
+                .patch("/users/2")
+                .then()
+                .statusCode(200)
+                .body("updatedAt", not(blankOrNullString()))
+                .body("name", is("nik"))
+                .body("job", is("programmer"));
+    }
 }
