@@ -104,7 +104,7 @@ public class ReqresTests {
                 .statusCode(204);
     }
 
-    @DisplayName("Обновление пользователя по id")
+    @DisplayName("Обновление пользователя по id через PUT")
     @Test
     void updateUserByIdTest() {
         given()
